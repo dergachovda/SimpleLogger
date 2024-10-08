@@ -1,0 +1,27 @@
+# PlatformIO
+.pio/
+.vscode/
+*.elf
+*.bin
+*.hex
+*.map
+
+# Arduino
+*.ino.cpp
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Compiled object files
+*.o
+*.obj
+
+# Libraries
+lib/
+
+# Build directories
+build/

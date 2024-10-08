@@ -54,4 +54,4 @@ void loop() {
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://opensource.org/licenses/MIT) for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) for details.
