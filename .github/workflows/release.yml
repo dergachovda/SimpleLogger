@@ -33,6 +33,7 @@ jobs:
           TAG_VERSION="0.0.0"
         fi
         echo "VERSION=${TAG_VERSION#v}" >> $GITHUB_ENV
+        echo $VERSION
 
     - name: Update PlatformIO package version
       run: |
