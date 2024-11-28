@@ -24,7 +24,7 @@ jobs:
 
     - name: Check PlatformIO Login Status
       env:
-        PLATFORMIO_API_TOKEN: ${{ secrets.PLATFORMIO_API_TOKEN }}
+        PLATFORMIO_API_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
       run: |
         if pio account show; then
             echo "Already logged in to PlatformIO."
@@ -47,6 +47,6 @@ jobs:
 
     - name: Publish Package to PlatformIO
       env:
-        PLATFORMIO_API_TOKEN: ${{ secrets.PLATFORMIO_API_TOKEN }}
+        PLATFORMIO_API_TOKEN: ${{ secrets.PLATFORMIO_TOKEN }}
       run: |
         pio pkg publish

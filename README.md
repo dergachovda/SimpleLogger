@@ -88,6 +88,7 @@ Links:
 - [arduino-creating-library-guide](https://docs.arduino.cc/learn/contributions/arduino-creating-library-guide/)
 - [PlatformIO: Creating Library](https://docs.platformio.org/en/latest/librarymanager/creating.html)
 - [Getting Started with Code Coverage in PlatformIO](https://piolabs.com/blog/insights/test-coverage-on-unit-testing.html)
+- [PlatformIO: GitHub Actions](https://docs.platformio.org/en/stable/integration/ci/github-actions.html)
 
 ## License
 
