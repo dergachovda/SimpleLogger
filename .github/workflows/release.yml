@@ -1,6 +1,8 @@
 name: Publish PlatformIO Package
+#  add manual trigger
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*' # Trigger workflow only on tag pushes matching this pattern (e.g., v1.0.0)
@@ -33,6 +35,10 @@ jobs:
         VERSION=$(echo $VERSION)
         echo "Setting package version to $VERSION"
         sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" platformio.ini
+        
+    - name: Ensure PlatformIO username is set
+      run: | 
+        pio account show || pio account update --username YOUR_USERNAME
 
     - name: Publish Package to PlatformIO
       env:
