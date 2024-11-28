@@ -40,8 +40,16 @@ jobs:
         VERSION=$(echo $VERSION)
         echo "Setting package version to $VERSION"
         sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" platformio.ini
+
+    - name: Authenticate with PlatformIO
+      env:
+        PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_AUTH_TOKEN }}
+      run: |
+        echo $PLATFORMIO_AUTH_TOKEN | pio account login --token
         
     - name: Ensure PlatformIO username is set
+      env:
+        PLATFORMIO_AUTH_TOKEN: ${{ secrets.PLATFORMIO_AUTH_TOKEN }}
       run: | 
         pio account show || pio account update --username YOUR_USERNAME
 
