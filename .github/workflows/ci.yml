@@ -7,11 +7,10 @@ on:
   pull_request:
     branches:
       - main
-  release:
-    types: [created]
 
 jobs:
-  build:
+  # add verify job
+  verify:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,29 +29,22 @@ jobs:
         run: |
           pio test
 
-  publish:
+  # add build job
+  build:
     runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'release'
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3  # Updated to v3
 
-      - name: Update version in library.properties
-        run: |
-          VERSION=${{ github.event.release.tag_name }}
-          echo "Updating version to $VERSION in library.properties"
-          sed -i "s/^version=.*/version=$VERSION/" library.properties
-
-      - name: Create zip file
-        run: zip -r SimpleLogger.zip SimpleLogger
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Setup Python
+        uses: actions/setup-python@v4  # Updated to v4
         with:
-          tag_name: ${{ github.event.release.tag_name }}
-          files: |
-            SimpleLogger.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: '3.x'
+
+      - name: Install PlatformIO
+        run: pip install -U platformio
+
+      - name: Build firmware
+        run: |
+          pio run
