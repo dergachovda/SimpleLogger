@@ -1,6 +1,6 @@
 {
     "name": "SimpleLogger",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "A lightweight logging library for Arduino, providing various log levels and simple message formatting.",
     "keywords": "logging, logger, arduino, simple",
     "repository":
@@ -13,7 +13,8 @@
       {
         "name": "Dmytro Derhachov",
         "email": "dergachovda@gmail.com",
-        "url": "https://github.com/dergachovda"
+        "url": "https://github.com/dergachovda",
+        "maintainer": true
       }
     ],
     "license": "MIT",

@@ -43,7 +43,7 @@ jobs:
       run: |
         VERSION=$(echo $VERSION)
         echo "Setting package version to $VERSION"
-        sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" platformio.ini
+        sed -i "s/\"version\": \".*\"/\"version\": \"$VERSION\"/" library.json
 
     - name: Publish Package to PlatformIO
       env:
